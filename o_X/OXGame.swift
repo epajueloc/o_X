@@ -13,8 +13,8 @@ class OXGame {
     private var startType = CellType.X
     
     var count = 0
+    
     func turnCount() -> Int {
-        count += 1
         return count
     }
     
@@ -28,45 +28,21 @@ class OXGame {
     }
     
     func playMove(cellNumber: Int) -> CellType {
+        count += 1
         board[cellNumber] = whoseTurn()
         return whoseTurn()
     }
     
     func gameWon() -> Bool {
-        if board[0] == board[1] {
-            if board [1] == board [2] {
-                return true
-            }
-        }
-        
-        if board[3] == board[4] {
-            if board [4] == board [5] {
-                return true
-            }
-        }
-        
-        if board[6] == board[7] {
-            if board [7] == board [8] {
-                return true
-            }
-        }
-        
-        if board[0] == board[4] {
-            if board [4] == board [8] {
-                return true
-            }
-        }
-        
-        if board[0] == board[4] {
-            if board [4] == board [8] {
-                return true
-            }
-        }
-        
-        if board[2] == board[4] {
-            if board [4] == board [6] {
-                return true
-            }
+        if  (board[0] == board[1] && board[1] == board[2] && board[0] != .Empty) ||
+            (board[3] == board[4] && board [4] == board [5] && board[3] != .Empty) ||
+            (board[6] == board[7] && board [7] == board [8] && board[6] != .Empty) ||
+            (board[0] == board[4] && board [4] == board [8] && board[0] != .Empty) ||
+            (board[2] == board[4] && board [4] == board [6] && board[2] != .Empty) ||
+            (board[0] == board[3] && board [3] == board [6] && board[0] != .Empty) ||
+            (board[1] == board[4] && board [4] == board [7] && board[1] != .Empty) ||
+            (board[2] == board[5] && board [5] == board [8] && board[2] != .Empty) {
+            return true
         }
         return false
     }
