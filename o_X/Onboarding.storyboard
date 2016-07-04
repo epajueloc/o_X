@@ -113,7 +113,7 @@
                                 <color key="backgroundColor" red="0.97647058959999999" green="0.0" blue="0.4784313738" alpha="1" colorSpace="deviceRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="ql1-Og-qua" secondAttribute="trailing" constant="10" id="4jm-Di-8wq"/>
-                                    <constraint firstItem="ql1-Og-qua" firstAttribute="leading" secondItem="kqU-f3-Ma7" secondAttribute="leading" constant="-40" id="70B-Fw-vZx"/>
+                                    <constraint firstItem="ql1-Og-qua" firstAttribute="leading" secondItem="kqU-f3-Ma7" secondAttribute="leading" constant="10" id="70B-Fw-vZx"/>
                                     <constraint firstItem="ql1-Og-qua" firstAttribute="top" secondItem="kqU-f3-Ma7" secondAttribute="top" constant="60" id="Cfs-aA-bKe"/>
                                     <constraint firstItem="grt-62-Ry9" firstAttribute="leading" secondItem="kqU-f3-Ma7" secondAttribute="leading" constant="10" id="eXK-fb-QOD"/>
                                     <constraint firstItem="grt-62-Ry9" firstAttribute="top" secondItem="ql1-Og-qua" secondAttribute="bottom" constant="30" id="smN-yr-0iW"/>
@@ -190,9 +190,6 @@
                                     <constraint firstItem="BEA-Qf-lXy" firstAttribute="leading" secondItem="qsH-Dr-POL" secondAttribute="leading" constant="10" id="guR-1b-wK1"/>
                                     <constraint firstItem="BEA-Qf-lXy" firstAttribute="top" secondItem="FXX-ei-CjA" secondAttribute="bottom" constant="30" id="lki-bR-gf1"/>
                                 </constraints>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="0.0" y="64" width="400" height="686"/>
-                                </variation>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Q2-K0-80Y">
                                 <rect key="frame" x="272" y="560" width="57" height="30"/>
@@ -206,7 +203,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="qsH-Dr-POL" firstAttribute="top" secondItem="Oft-n5-6TH" secondAttribute="bottom" constant="50" id="3dA-BH-5kf"/>
+                            <constraint firstItem="qsH-Dr-POL" firstAttribute="top" secondItem="Oft-n5-6TH" secondAttribute="bottom" id="3dA-BH-5kf"/>
                             <constraint firstItem="9Q2-K0-80Y" firstAttribute="centerX" secondItem="qsH-Dr-POL" secondAttribute="centerX" id="H54-za-N2c"/>
                             <constraint firstItem="XNk-35-VWY" firstAttribute="top" secondItem="9Q2-K0-80Y" secondAttribute="bottom" constant="10" id="I4r-bA-nfh"/>
                             <constraint firstItem="XNk-35-VWY" firstAttribute="top" secondItem="qsH-Dr-POL" secondAttribute="bottom" constant="50" id="NIo-r2-g7a"/>
@@ -222,7 +219,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RaH-dB-ahX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1896" y="625.5"/>
+            <point key="canvasLocation" x="1864" y="945"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="9dB-zL-huZ">

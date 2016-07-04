@@ -30,6 +30,12 @@ class UserController: NSObject {
         
         currentUser = User(email: email, password: password)
         userList.append(currentUser!)
+        
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setObject(email, forKey: "currentUserEmail")
+        defaults.setObject(password, forKey: "currentUserPassword")
+        defaults.synchronize()
+        
         onCompletion(currentUser, nil)
     }
     
@@ -43,11 +49,19 @@ class UserController: NSObject {
             }
         }
         
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setObject(email, forKey: "currentUserEmail")
+        defaults.setObject(password, forKey: "currentUserPassword")
+        defaults.synchronize()
+        
         onCompletion(nil, "Your email or password is incorrect.")
     }
 
     func logout(onCompletion:(String?) -> Void) {
-        
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.removeObjectForKey("currentUserEmail")
+        defaults.removeObjectForKey("currentUserPassword")
+        defaults.synchronize()
     }
     
 }
