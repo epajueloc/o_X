@@ -24,4 +24,23 @@ class OXGameController: NSObject {
         return currentGame.playMove(cellNumber)
     }
     
+    func getGames(onCompletion onCompletion: ([OXGame]?, String?) -> Void) {
+        
+        let a = OXGame()
+        let b = OXGame()
+        let c = OXGame()
+        
+        a.ID = 1
+        a.host = "Enrique"
+        
+        b.ID = 2
+        b.host = "Mark"
+        
+        c.ID = 3
+        c.host = "John"
+        
+        onCompletion([a,b,c],nil)
+        
+    }
+    
 }
