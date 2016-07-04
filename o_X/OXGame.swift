@@ -61,6 +61,7 @@ class OXGame {
     
     func reset() {
         board = [CellType] (count: 9, repeatedValue: CellType.Empty)
+        count = 0
     }
     
 }

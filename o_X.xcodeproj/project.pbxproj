@@ -14,6 +14,11 @@
 		02F782D01D22966600E3BC29 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02F782CE1D22966600E3BC29 /* LaunchScreen.storyboard */; };
 		6A46F53B1D23D85A00A2C258 /* OXGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A46F53A1D23D85A00A2C258 /* OXGame.swift */; };
 		6A46F5431D241FBF00A2C258 /* OXGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A46F5421D241FBF00A2C258 /* OXGameController.swift */; };
+		6A46F5871D259F7900A2C258 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A46F5861D259F7900A2C258 /* User.swift */; };
+		6A46F5891D259F9F00A2C258 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A46F5881D259F9F00A2C258 /* UserController.swift */; };
+		6A46F5C91D26739E00A2C258 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A46F5C81D26739E00A2C258 /* Onboarding.storyboard */; };
+		6A46F5CB1D267E5000A2C258 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A46F5CA1D267E5000A2C258 /* RegisterViewController.swift */; };
+		6A46F5CD1D267EE300A2C258 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A46F5CC1D267EE300A2C258 /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +31,11 @@
 		02F782D11D22966600E3BC29 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6A46F53A1D23D85A00A2C258 /* OXGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OXGame.swift; sourceTree = "<group>"; };
 		6A46F5421D241FBF00A2C258 /* OXGameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OXGameController.swift; sourceTree = "<group>"; };
+		6A46F5861D259F7900A2C258 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		6A46F5881D259F9F00A2C258 /* UserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
+		6A46F5C81D26739E00A2C258 /* Onboarding.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
+		6A46F5CA1D267E5000A2C258 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		6A46F5CC1D267EE300A2C258 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,11 +71,16 @@
 				02F782C51D22966600E3BC29 /* AppDelegate.swift */,
 				6A46F53A1D23D85A00A2C258 /* OXGame.swift */,
 				02F782C71D22966600E3BC29 /* BoardViewController.swift */,
+				6A46F5CA1D267E5000A2C258 /* RegisterViewController.swift */,
+				6A46F5CC1D267EE300A2C258 /* LoginViewController.swift */,
+				6A46F5421D241FBF00A2C258 /* OXGameController.swift */,
+				6A46F5861D259F7900A2C258 /* User.swift */,
+				6A46F5881D259F9F00A2C258 /* UserController.swift */,
 				02F782C91D22966600E3BC29 /* Main.storyboard */,
+				6A46F5C81D26739E00A2C258 /* Onboarding.storyboard */,
 				02F782CC1D22966600E3BC29 /* Assets.xcassets */,
 				02F782CE1D22966600E3BC29 /* LaunchScreen.storyboard */,
 				02F782D11D22966600E3BC29 /* Info.plist */,
-				6A46F5421D241FBF00A2C258 /* OXGameController.swift */,
 			);
 			path = o_X;
 			sourceTree = "<group>";
@@ -131,6 +146,7 @@
 				02F782D01D22966600E3BC29 /* LaunchScreen.storyboard in Resources */,
 				02F782CD1D22966600E3BC29 /* Assets.xcassets in Resources */,
 				02F782CB1D22966600E3BC29 /* Main.storyboard in Resources */,
+				6A46F5C91D26739E00A2C258 /* Onboarding.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,9 +157,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A46F5891D259F9F00A2C258 /* UserController.swift in Sources */,
 				02F782C81D22966600E3BC29 /* BoardViewController.swift in Sources */,
+				6A46F5CB1D267E5000A2C258 /* RegisterViewController.swift in Sources */,
 				6A46F53B1D23D85A00A2C258 /* OXGame.swift in Sources */,
+				6A46F5CD1D267EE300A2C258 /* LoginViewController.swift in Sources */,
 				6A46F5431D241FBF00A2C258 /* OXGameController.swift in Sources */,
+				6A46F5871D259F7900A2C258 /* User.swift in Sources */,
 				02F782C61D22966600E3BC29 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

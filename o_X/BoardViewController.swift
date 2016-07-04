@@ -19,28 +19,59 @@ class BoardViewController: UIViewController {
         let cellType = OXGameController.sharedInstance.playMove(sender.tag)
         sender.setTitle(cellType.rawValue, forState: .Normal)
         
-        if (OXGameController.sharedInstance.getCurrentGame().state() == .Won) {
-            let alert = UIAlertController(title: "Congratulations!", message: "You won the game", preferredStyle: .Alert)
+        let currentState = OXGameController.sharedInstance.getCurrentGame().state()
+        
+        var winner = ""
+        
+        if (OXGameController.sharedInstance.getCurrentGame().whoseTurn() == .X) {
+                winner = "X"
+        }
+        else if (OXGameController.sharedInstance.getCurrentGame().whoseTurn() == .O) {
+                winner = "O"
+        }
+        
+        
+        if (currentState == .Won) {
+            let alert = UIAlertController(title: "Congratulations " + winner + "!", message: "You won the game", preferredStyle: .Alert)
             let dismiss = UIAlertAction(title: "Dismiss", style: .Cancel, handler: nil)
             alert.addAction(dismiss)
             presentViewController(alert, animated: true, completion: nil)
+            newGameButton.hidden = false
         }
         
-        if (OXGameController.sharedInstance.getCurrentGame().state() == .Tie) {
+        // CellType.rawvalue
+        
+        if (currentState == .Tie) {
             let alert = UIAlertController(title: "You tied!", message: "Keep trying", preferredStyle: .Alert)
             let dismiss = UIAlertAction(title: "Dismiss", style: .Cancel, handler: nil)
             alert.addAction(dismiss)
             presentViewController(alert, animated: true, completion: nil)
+            newGameButton.hidden = false
         }
+        
+//        if (currentState != .InProgress) {
+//            OXGameController.sharedInstance.restartGame()
+//            for subview in containerView.subviews {
+//                if let button = subview as? UIButton {
+//                    button.setTitle("", forState: .Normal)
+//                }
+//            }
+//        }
         
     }
     
     @IBAction func backButton(sender: AnyObject) {
-        print("Back")
+        let storyboard = UIStoryboard(name: "Onboarding", bundle: nil)
+        let viewController = storyboard.instantiateInitialViewController()
+        let application = UIApplication.sharedApplication()
+        let window = application.keyWindow
+        window?.rootViewController = viewController
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        newGameButton.hidden = true
         
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -49,8 +80,10 @@ class BoardViewController: UIViewController {
     
     @IBAction func newGameButtonPressed(sender: UIButton) {
         
-        OXGameController.sharedInstance.restartGame()
+        newGameButton.hidden = true
         
+        OXGameController.sharedInstance.restartGame()
+    
         print("New game button pressed.")
         
         for subview in containerView.subviews {
