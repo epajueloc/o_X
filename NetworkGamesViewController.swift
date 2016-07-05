@@ -42,5 +42,13 @@ class NetworkGamesViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         return games.count
     }
+    
+//    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+//        <#code#>
+//    }
+//    
+//    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+//        <#code#>
+//    }
 
 }
