@@ -29,17 +29,25 @@ class OXGameController: NSObject {
         let a = OXGame()
         let b = OXGame()
         let c = OXGame()
+        let d = OXGame()
+        let e = OXGame()
         
         a.ID = 1
         a.host = "Enrique"
         
         b.ID = 2
-        b.host = "Mark"
+        b.host = "Marky"
         
         c.ID = 3
-        c.host = "John"
+        c.host = "Eli"
         
-        onCompletion([a,b,c],nil)
+        d.ID = 4
+        d.host = "Andre"
+        
+        e.ID = 5
+        e.host = "Riley"
+        
+        onCompletion([a,b,c,d,e],nil)
         
     }
     

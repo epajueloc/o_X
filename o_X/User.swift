@@ -9,11 +9,15 @@
 import UIKit
 
 class User: NSObject {
-    var email: String
-    var password: String
+    var email:String
+    var password:String
+    var token:String
+    var client:String
     
-    init(email: String, password: String) {
+    init(email:String, password:String, client:String, token:String) {
         self.email = email
         self.password = password
+        self.client = client
+        self.token = token
     }
 }

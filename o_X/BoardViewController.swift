@@ -8,6 +8,8 @@ import UIKit
 var gameObject: OXGame = OXGame()
 
 class BoardViewController: UIViewController {
+    
+    var networkMode = false
 
     @IBOutlet weak var newGameButton: UIButton!
     // Create additional IBOutlets here.
@@ -18,6 +20,7 @@ class BoardViewController: UIViewController {
         print(sender.tag)
         let cellType = OXGameController.sharedInstance.playMove(sender.tag)
         sender.setTitle(cellType.rawValue, forState: .Normal)
+        sender.enabled = false
         
         let currentState = OXGameController.sharedInstance.getCurrentGame().state()
         
@@ -36,7 +39,9 @@ class BoardViewController: UIViewController {
             let dismiss = UIAlertAction(title: "Dismiss", style: .Cancel, handler: nil)
             alert.addAction(dismiss)
             presentViewController(alert, animated: true, completion: nil)
-            newGameButton.hidden = false
+            if networkMode == false {
+                newGameButton.hidden = false
+            }
         }
         
         // CellType.rawvalue
@@ -46,17 +51,10 @@ class BoardViewController: UIViewController {
             let dismiss = UIAlertAction(title: "Dismiss", style: .Cancel, handler: nil)
             alert.addAction(dismiss)
             presentViewController(alert, animated: true, completion: nil)
-            newGameButton.hidden = false
+            if networkMode == false {
+                newGameButton.hidden = false
+            }
         }
-        
-//        if (currentState != .InProgress) {
-//            OXGameController.sharedInstance.restartGame()
-//            for subview in containerView.subviews {
-//                if let button = subview as? UIButton {
-//                    button.setTitle("", forState: .Normal)
-//                }
-//            }
-//        }
         
     }
     
@@ -70,17 +68,31 @@ class BoardViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateUI()
         
-        newGameButton.hidden = true
+        if networkMode == false {
+            newGameButton.hidden = true
+        }
         
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    func updateUI() {
+        let board = OXGameController.sharedInstance.getCurrentGame().board
+        for subview in containerView.subviews {
+            if let button = subview as? UIButton {
+                button.setTitle(board[button.tag].rawValue, forState: .Normal)
+            }
+        }
     }
     
     @IBOutlet weak var containerView: UIView!
     
     @IBAction func newGameButtonPressed(sender: UIButton) {
         
-        newGameButton.hidden = true
+        if networkMode == false {
+            newGameButton.hidden = true
+        }
         
         OXGameController.sharedInstance.restartGame()
     
@@ -89,6 +101,7 @@ class BoardViewController: UIViewController {
         for subview in containerView.subviews {
             if let button = subview as? UIButton {
                 button.setTitle("", forState: .Normal)
+                button.enabled = true
             }
         }
     }

@@ -10,7 +10,7 @@ import UIKit
 
 class NetworkGamesViewController: UITableViewController {
     
-    var games: [OXGame] = []
+    private var games: [OXGame] = []
     
     @IBAction func dismissButton(sender: AnyObject) {
         [self .dismissViewControllerAnimated(true, completion: nil)]
@@ -18,7 +18,16 @@ class NetworkGamesViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        OXGameController.sharedInstance.getGames(onCompletion: {games, error in
+            if let availGames:[OXGame] = games {
+                self.games = availGames
+                self.tableView.reloadData()
+            } else {
+                print("Error Message")
+            }
+        })
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -35,7 +44,7 @@ class NetworkGamesViewController: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -43,12 +52,25 @@ class NetworkGamesViewController: UITableViewController {
         return games.count
     }
     
-//    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-//        <#code#>
-//    }
-//    
-//    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-//        <#code#>
-//    }
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("CellIdentifier", forIndexPath: indexPath)
+        cell.textLabel?.text = games[indexPath.row].host
+        return cell
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        
+        self.performSegueWithIdentifier("NetworktoBoard", sender: self)
+        
+        
+        
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let destinationVC = segue.destinationViewController as? BoardViewController {
+            destinationVC.networkMode = true
+        }
+    }
 
 }
