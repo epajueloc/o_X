@@ -64,6 +64,10 @@ class BoardViewController: UIViewController {
         let application = UIApplication.sharedApplication()
         let window = application.keyWindow
         window?.rootViewController = viewController
+        
+        UserController.sharedInstance.logout { string in
+        }
+        
     }
     
     override func viewDidLoad() {
