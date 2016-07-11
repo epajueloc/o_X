@@ -9,17 +9,6 @@
 import UIKit
 
 class LoginViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     @IBOutlet weak var emailField: UITextField!
     
@@ -43,17 +32,25 @@ class LoginViewController: UIViewController {
         }
         UserController.sharedInstance.login(emailField.text!, password: passwordField.text!, onCompletion: onCompletion)
     }
-
+    
+    @IBAction func emailFieldReturned(sender: UITextField) {
+        passwordField.becomeFirstResponder()
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    @IBAction func passwordFieldReturned(sender: UITextField) {
+        passwordField.resignFirstResponder()
     }
-    */
+    
+}
+
+
+/*
+ // MARK: - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+ // Get the new view controller using segue.destinationViewController.
+ // Pass the selected object to the new view controller.
+ }
+ */
 

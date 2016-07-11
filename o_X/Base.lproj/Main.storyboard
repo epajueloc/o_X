@@ -359,7 +359,11 @@
                                 <action selector="dismissButton:" destination="2hl-YL-Wms" id="PIs-az-WMH"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="G3v-7L-hyU"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="G3v-7L-hyU">
+                            <connections>
+                                <action selector="newGameButton:" destination="2hl-YL-Wms" id="sLs-0n-gLi"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <segue destination="Ipc-Rs-hLk" kind="show" identifier="NetworktoBoard" id="Xy5-3Y-Cft"/>
@@ -528,10 +532,9 @@
                                                     <action selector="squareButton:" destination="Ipc-Rs-hLk" eventType="touchUpInside" id="CMt-PI-jHh"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z8P-RT-IfK">
-                                                <rect key="frame" x="255" y="514" width="50" height="36"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Awaiting Opponent to Connect..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z8P-RT-IfK">
+                                                <rect key="frame" x="156" y="514" width="248" height="36"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="50" id="V4Q-sT-hI9"/>
                                                     <constraint firstAttribute="height" constant="36" id="eV6-8c-ugj"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -604,6 +607,40 @@
                                             </mask>
                                         </variation>
                                     </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="prf-JF-qGk" userLabel="Refresh">
+                                        <rect key="frame" x="270.5" y="494" width="59" height="36"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="dKY-rJ-aAj"/>
+                                            <constraint firstAttribute="height" constant="36" id="uMK-MZ-Stq"/>
+                                            <constraint firstAttribute="width" constant="60" id="yR4-5d-Ppa"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <state key="normal" title="Refresh">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="dKY-rJ-aAj"/>
+                                                <exclude reference="yR4-5d-Ppa"/>
+                                            </mask>
+                                        </variation>
+                                        <connections>
+                                            <action selector="refreshButtonPressed:" destination="Ipc-Rs-hLk" eventType="touchUpInside" id="2nm-CF-IMz"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NV0-1f-MOO">
+                                        <rect key="frame" x="273.5" y="460" width="53" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="V5R-EB-qbu"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <state key="normal" title="Cancel">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="cancelButtonPressed:" destination="Ipc-Rs-hLk" eventType="touchUpInside" id="1ZM-oE-8eD"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.059015409069999997" green="0.33318834159999999" blue="0.54308894230000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -611,12 +648,17 @@
                                     <constraint firstItem="N26-B4-5R9" firstAttribute="width" secondItem="ZvE-D3-qsP" secondAttribute="width" multiplier="0.3" id="49e-U5-8Vy"/>
                                     <constraint firstItem="N26-B4-5R9" firstAttribute="height" secondItem="ZvE-D3-qsP" secondAttribute="height" multiplier="0.3" id="CEd-J8-D1C"/>
                                     <constraint firstAttribute="trailing" secondItem="io0-yg-IM3" secondAttribute="trailing" constant="20" id="CVw-TS-95S"/>
+                                    <constraint firstItem="NV0-1f-MOO" firstAttribute="centerX" secondItem="ZvE-D3-qsP" secondAttribute="centerX" id="Gop-6m-gzi"/>
                                     <constraint firstItem="io0-yg-IM3" firstAttribute="centerY" secondItem="ZvE-D3-qsP" secondAttribute="centerY" id="Rw8-TT-TIM"/>
+                                    <constraint firstAttribute="bottom" secondItem="prf-JF-qGk" secondAttribute="bottom" constant="70" id="WhM-m8-jW7"/>
                                     <constraint firstItem="io0-yg-IM3" firstAttribute="leading" secondItem="ZvE-D3-qsP" secondAttribute="leading" constant="20" id="Ydh-5M-hZc"/>
+                                    <constraint firstItem="prf-JF-qGk" firstAttribute="leading" secondItem="ZvE-D3-qsP" secondAttribute="leading" constant="30" id="ZU3-8g-q2a"/>
                                     <constraint firstItem="9aC-dh-KuA" firstAttribute="centerX" secondItem="ZvE-D3-qsP" secondAttribute="centerX" id="g3h-ek-C0f"/>
                                     <constraint firstAttribute="bottom" secondItem="io0-yg-IM3" secondAttribute="bottom" constant="80" id="jMG-59-K9x"/>
+                                    <constraint firstAttribute="bottom" secondItem="NV0-1f-MOO" secondAttribute="bottom" constant="110" id="jh0-7O-SCw"/>
                                     <constraint firstItem="9aC-dh-KuA" firstAttribute="top" secondItem="ZvE-D3-qsP" secondAttribute="top" constant="70" id="kmT-mn-hFa"/>
                                     <constraint firstItem="Z8P-RT-IfK" firstAttribute="centerX" secondItem="ZvE-D3-qsP" secondAttribute="centerX" id="u4x-dU-Blk"/>
+                                    <constraint firstItem="prf-JF-qGk" firstAttribute="centerX" secondItem="ZvE-D3-qsP" secondAttribute="centerX" id="uW6-Z3-IkX"/>
                                     <constraint firstAttribute="bottom" secondItem="Z8P-RT-IfK" secondAttribute="bottom" constant="30" id="xkT-zN-sDG"/>
                                 </constraints>
                                 <variation key="default">
@@ -625,6 +667,7 @@
                                         <exclude reference="jMG-59-K9x"/>
                                         <exclude reference="49e-U5-8Vy"/>
                                         <exclude reference="CEd-J8-D1C"/>
+                                        <exclude reference="ZU3-8g-q2a"/>
                                     </mask>
                                 </variation>
                             </view>

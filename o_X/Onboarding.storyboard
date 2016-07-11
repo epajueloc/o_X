@@ -92,10 +92,13 @@
                                         </constraints>
                                         <color key="textColor" red="0.059015409069999997" green="0.33318834159999999" blue="0.54308894230000004" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" spellCheckingType="no" secureTextEntry="YES"/>
+                                        <textInputTraits key="textInputTraits" spellCheckingType="no" returnKeyType="done" secureTextEntry="YES"/>
                                         <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
                                             <rect key="frame" x="10" y="170" width="380" height="30"/>
                                         </variation>
+                                        <connections>
+                                            <action selector="passwordFieldReturned:" destination="i3A-64-XTQ" eventType="primaryActionTriggered" id="CuZ-R1-OSQ"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ql1-Og-qua">
                                         <rect key="frame" x="10" y="60" width="580" height="30"/>
@@ -104,10 +107,13 @@
                                         </constraints>
                                         <color key="textColor" red="0.059015409069999997" green="0.33318834159999999" blue="0.54308894230000004" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                         <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
                                             <rect key="frame" x="10" y="110" width="380" height="30"/>
                                         </variation>
+                                        <connections>
+                                            <action selector="emailFieldReturned:" destination="i3A-64-XTQ" eventType="primaryActionTriggered" id="G7f-TY-dQd"/>
+                                        </connections>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" red="0.059015409069999997" green="0.33318834159999999" blue="0.54308894230000004" alpha="1" colorSpace="calibratedRGB"/>

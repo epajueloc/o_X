@@ -10,29 +10,27 @@ import Foundation
 
 class OXGame {
     var board: [CellType] = [CellType] (count: 9, repeatedValue: CellType.Empty)
-    private var startType = CellType.X
+    
     var ID: Int = 0
     var host: String = ""
     
-    var count = 0
     
     func turnCount() -> Int {
-        return count
+        return board.filter{$0 != .Empty}.count
     }
     
     func whoseTurn() -> CellType {
-        if (count % 2 == 0) {
-            return CellType.O
+        if turnCount() % 2 == 0 {
+            return CellType.X
         }
         else {
-            return CellType.X
+            return CellType.O
         }
     }
     
     func playMove(cellNumber: Int) -> CellType {
-        count += 1
         board[cellNumber] = whoseTurn()
-        return whoseTurn()
+        return board[cellNumber]
     }
     
     func gameWon() -> Bool {
@@ -63,43 +61,28 @@ class OXGame {
     
     func reset() {
         board = [CellType] (count: 9, repeatedValue: CellType.Empty)
-        count = 0
     }
     
     init()  {
-        //we are simulating setting our board from the internet
-        let simulatedBoardStringFromNetwork = "_________" //update this string to different values to test your model serialisation
-        self.board = deserialiseBoard(simulatedBoardStringFromNetwork) //your OXGame board model should get set here
-        if(simulatedBoardStringFromNetwork == serialiseBoard())    {
-            print("Start\n------------------------------------")
-            print("Congratulations, you successfully deserialised your board and serialized it again correctly. You can send your data model over the internet with this code. 1 step closer to network OX ;)")
-            
-            print("Done\n------------------------------------")
-        }   else    {
-            print("Start\n------------------------------------")
-            print ("Your board deserialisation and serialization was not correct :( carry on coding on those functions")
-            
-            print("Done\n------------------------------------")
-        }
     }
     
-    private func deserialiseBoard(boardString: String) -> [CellType] {
-        var board:[CellType] = []
+    func deserialiseBoard(boardString: String) {
+        var newBoard:[CellType] = []
         for char in boardString.characters {
             if char == "x" {
-                board.append(CellType.X)
+                newBoard.append(CellType.X)
             }
             else if (char == "o") {
-                board.append(CellType.O)
+                newBoard.append(CellType.O)
             }
             else {
-                board.append(CellType.Empty)
+                newBoard.append(CellType.Empty)
             }
         }
-        return board
+        board = newBoard
     }
     
-    private func serialiseBoard() -> String {
+    func serialiseBoard() -> String {
         
         var boardString: String = ""
         

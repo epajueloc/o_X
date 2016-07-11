@@ -33,6 +33,14 @@ class BoardViewController: UIViewController {
                 winner = "O"
         }
         
+        // Network play move
+        
+        if networkMode == true {
+            OXGameController.sharedInstance.makeMove(OXGameController.sharedInstance.getCurrentGame().ID,  onCompletion: { (game, message) in
+                self.updateUI()
+            })
+        }
+        
         
         if (currentState == .Won) {
             let alert = UIAlertController(title: "Congratulations " + winner + "!", message: "You won the game", preferredStyle: .Alert)
@@ -78,7 +86,6 @@ class BoardViewController: UIViewController {
             newGameButton.hidden = true
         }
         
-        // Do any additional setup after loading the view, typically from a nib.
     }
     
     func updateUI() {
@@ -89,6 +96,30 @@ class BoardViewController: UIViewController {
             }
         }
     }
+    
+    @IBAction func refreshButtonPressed(sender: AnyObject) {
+        OXGameController.sharedInstance.viewGame({message in
+            if message == nil {
+                self.updateUI()
+            }
+            else {
+                print("Error")
+            }
+        })
+    }
+    
+    @IBAction func cancelButtonPressed(sender: AnyObject) {
+        OXGameController.sharedInstance.cancelGame({message in
+            if message == nil {
+                self.navigationController?.popViewControllerAnimated(true)
+                print("a")
+            }
+            else {
+                print("Error")
+            }
+        })
+    }
+    
     
     @IBOutlet weak var containerView: UIView!
     
